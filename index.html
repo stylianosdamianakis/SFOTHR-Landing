@@ -16,20 +16,36 @@
     />
     <meta property="og:url" content="https://sfothr.com/" />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:image" content="https://sfothr.com/assets/sfothr-logo.png" />
+    <meta name="theme-color" content="#c43c18" />
+    <link rel="icon" href="assets/sfothr-logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/sfothr-logo.png" />
+    <link rel="preload" href="assets/sfothr-background.jpg" as="image" />
+    <link rel="preload" href="assets/sfothr-logo.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <header class="hero">
-        <!-- Drop a logo at assets/logo.png, then uncomment the next line. -->
-        <!-- <img class="logo" src="assets/logo.png" alt="SFOTH: Reforged" /> -->
-        <p class="eyebrow">Sword Fights on the Heights IV</p>
-        <h1>Reforged</h1>
-        <p class="tagline">
-          A revival of Shedletsky's classic. Fight, fall, and try not to die.
-        </p>
-      </header>
+    <div class="backdrop" aria-hidden="true">
+      <img
+        class="backdrop-image"
+        src="assets/sfothr-background.jpg"
+        alt=""
+        width="1920"
+        height="1017"
+        fetchpriority="high"
+      />
+    </div>
+
+    <main class="stage">
+      <h1 class="brand">
+        <img
+          class="logo"
+          src="assets/sfothr-logo.png"
+          alt="Sword Fights on the Heights IV: Reforged"
+          width="375"
+          height="375"
+        />
+      </h1>
 
       <nav class="links" aria-label="Official links">
         <a
@@ -38,15 +54,16 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Play on Roblox
-        </a>
-        <a
-          class="link"
-          href="https://discord.gg/sfoth"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discord
+          <span class="icon">
+            <img
+              src="assets/roblox-icon.png"
+              alt=""
+              width="256"
+              height="256"
+              decoding="async"
+            />
+          </span>
+          <span class="label">Game</span>
         </a>
         <a
           class="link"
@@ -54,7 +71,33 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Wiki
+          <span class="icon">
+            <img
+              src="assets/wiki-icon.png"
+              alt=""
+              width="256"
+              height="256"
+              decoding="async"
+            />
+          </span>
+          <span class="label">Wiki</span>
+        </a>
+        <a
+          class="link"
+          href="https://discord.gg/sfoth"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="icon">
+            <img
+              src="assets/discord-icon.png"
+              alt=""
+              width="256"
+              height="256"
+              decoding="async"
+            />
+          </span>
+          <span class="label">Discord</span>
         </a>
       </nav>
     </main>
