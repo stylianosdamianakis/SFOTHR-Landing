@@ -1,27 +1,26 @@
-# SFOTH: Reforged landing page
+# SFOTH: Reforged
 
-Static one-page site for [sfothr.com](https://sfothr.com), published with GitHub Pages.
+Landing page for [sfothr.com](https://sfothr.com) — Sword Fights on the Heights IV: Reforged.
 
-Decorate `index.html` and `styles.css`. Put images in `assets/`. The Discord, wiki, and Roblox links are already wired.
+The page is a static GitHub Pages site with three links: the [Roblox game](https://www.roblox.com/games/77483797026305/Sword-Fights-on-the-Heights-IV-Reforged), the [wiki](https://wiki.sfothr.com/), and [Discord](https://discord.gg/sfoth).
 
-## One-time GitHub Pages setup
+## Preview locally
 
-After the first push to `main`, GitHub Actions publishes the site. Then:
+From this folder:
 
-1. Open [Pages settings](https://github.com/stylianosdamianakis/SFOTHR-Landing/settings/pages).
-2. Confirm the source is **GitHub Actions**.
-3. Set **Custom domain** to `sfothr.com` and save.
-4. Wait for DNS to check out, then enable **Enforce HTTPS**.
+```powershell
+python -m http.server 8080
+```
 
-Until the custom domain is live, the site is at:
+Then open http://localhost:8080.
 
-https://stylianosdamianakis.github.io/SFOTHR-Landing/
+## Deploy
 
-## DNS for sfothr.com
+Pushes to `main` publish through [GitHub Actions](.github/workflows/pages.yml). The custom domain is `sfothr.com`.
 
-The domain currently shows a Squarespace "coming soon" page. In your DNS settings, replace the apex and `www` Squarespace records with GitHub Pages.
+## DNS
 
-Leave the existing `wiki` CNAME (it should point at `sfothr.miraheze.org`) so [wiki.sfothr.com](https://wiki.sfothr.com) keeps working.
+Keep the `wiki` CNAME pointing at Miraheze so [wiki.sfothr.com](https://wiki.sfothr.com) stays up. Apex and `www` should point at GitHub Pages:
 
 | Type | Host | Value |
 | --- | --- | --- |
@@ -34,15 +33,3 @@ Leave the existing `wiki` CNAME (it should point at `sfothr.miraheze.org`) so [w
 | AAAA | `@` | `2606:50c0:8002::153` |
 | AAAA | `@` | `2606:50c0:8003::153` |
 | CNAME | `www` | `stylianosdamianakis.github.io` |
-
-Remove any old A / CNAME / forwarding records on `@` and `www` that still point at parking or a different host. DNS and HTTPS can take up to an hour after you save.
-
-## Preview locally
-
-Open `index.html` in a browser, or from this folder:
-
-```powershell
-python -m http.server 8080
-```
-
-Then visit http://localhost:8080.
